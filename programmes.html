@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Programmes | Victoria University of Wellington</title>
+  <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="img/logo.jpg" alt="" width="40" height="40">
+        <span class="brand-name">Victoria University of Wellington<span>Te Herenga Waka · Wellington, NZ</span></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span> Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programmes.html" aria-current="page">Programmes</a></li>
+          <li><a href="admissions.html">Admissions</a></li>
+          <li><a href="calculators.html">Calculators</a></li>
+          <li><a href="student-life.html">Student Life</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" style="padding-bottom:1.5rem">
+      <div class="container">
+        <h1 style="margin-top:0">Programmes</h1>
+        <p class="lede">A representative selection of the university's nearly 200 programmes. Filter by faculty, level, or campus, or search by name. Fees are indicative international tuition (NZD per year) — see the <a href="https://www.wgtn.ac.nz/study/programmes-courses" target="_blank" rel="noopener">official finder</a> for the full catalogue.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0" aria-labelledby="browse-h">
+      <div class="container">
+        <h2 id="browse-h" class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Browse and filter programmes</h2>
+
+        <form class="filter-bar" id="filters" role="search" aria-label="Programme filters">
+          <div class="field" style="flex:2;min-width:220px">
+            <label for="f-search">Search</label>
+            <input type="search" id="f-search" placeholder="e.g. engineering, law, design…" autocomplete="off">
+          </div>
+          <div class="field">
+            <label for="f-faculty">Faculty</label>
+            <select id="f-faculty">
+              <option value="">All faculties</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-campus">Campus</label>
+            <select id="f-campus">
+              <option value="">All campuses</option>
+              <option value="Kelburn">Kelburn</option>
+              <option value="Pipitea">Pipitea</option>
+              <option value="Te Aro">Te Aro</option>
+            </select>
+          </div>
+          <div class="field" style="min-width:auto">
+            <span id="level-label" style="font-size:0.82rem;font-weight:600;color:var(--teal-900);display:block;margin-bottom:0.3rem">Level</span>
+            <div class="filter-chips" role="group" aria-labelledby="level-label">
+              <button type="button" class="filter-chip" data-level="" aria-pressed="true">All</button>
+              <button type="button" class="filter-chip" data-level="ug" aria-pressed="false">Undergraduate</button>
+              <button type="button" class="filter-chip" data-level="pg" aria-pressed="false">Postgraduate</button>
+            </div>
+          </div>
+        </form>
+
+        <p class="result-count" id="result-count" role="status" aria-live="polite"></p>
+        <div class="grid" id="programme-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>About this site</h3>
+          <p style="font-size:0.92rem">An educational class project about Te Herenga Waka—Victoria University of Wellington. Not an official university website — for authoritative information always visit <a href="https://www.wgtn.ac.nz" target="_blank" rel="noopener">wgtn.ac.nz</a>.</p>
+        </div>
+        <div>
+          <h3>Official links</h3>
+          <ul>
+            <li><a href="https://www.wgtn.ac.nz/study/programmes-courses" target="_blank" rel="noopener">Programmes &amp; courses</a></li>
+            <li><a href="https://www.wgtn.ac.nz/about/campuses-facilities/faculties-schools" target="_blank" rel="noopener">Faculties &amp; schools</a></li>
+            <li><a href="https://www.wgtn.ac.nz/study/apply-enrol/admissions" target="_blank" rel="noopener">Admissions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="calculators.html">Calculators</a></li>
+            <li><a href="student-life.html">Student Life</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note">Photos: Wikimedia Commons (CC BY-SA 4.0, CC BY 2.0, public domain) — see <a href="img/CREDITS.md">credits</a>. Indicative data collected September 2026 for a class presentation.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/programmes.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

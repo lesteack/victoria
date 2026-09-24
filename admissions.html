@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admissions | Victoria University of Wellington</title>
+  <link rel="icon" type="image/jpeg" href="img/logo.jpg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <img src="img/logo.jpg" alt="" width="40" height="40">
+        <span class="brand-name">Victoria University of Wellington<span>Te Herenga Waka · Wellington, NZ</span></span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span> Menu
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="programmes.html">Programmes</a></li>
+          <li><a href="admissions.html" aria-current="page">Admissions</a></li>
+          <li><a href="calculators.html">Calculators</a></li>
+          <li><a href="student-life.html">Student Life</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section" style="padding-bottom:1.5rem">
+      <div class="container">
+        <h1 style="margin-top:0">Admissions</h1>
+        <p class="lede">Since 2021, any applicant who achieves New Zealand University Entrance (UE) is guaranteed entry to undergraduate study. Some programmes — like the Bachelor of Architectural Studies or the Bachelor of Music — add a portfolio or audition.</p>
+        <p><a class="btn btn-solid" href="#checker">Try the admissions checker</a></p>
+      </div>
+    </section>
+
+    <section class="section section--tint" aria-labelledby="req-h">
+      <div class="container">
+        <h2 id="req-h" style="margin-top:0">Entry requirements by qualification</h2>
+        <p class="lede">Indicative summary for a class presentation — always confirm on the <a href="https://www.wgtn.ac.nz/study/apply-enrol/admissions" target="_blank" rel="noopener">official admissions pages</a>.</p>
+        <div class="table-wrap" style="margin-top:1.5rem">
+          <table>
+            <thead>
+              <tr><th scope="col">Qualification</th><th scope="col">Typical requirement</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">NCEA (NZ)</th><td>University Entrance: 14 credits at Level 3 in each of 3 approved subjects, 10 literacy credits (5 reading + 5 writing) at Level 2 or above, 10 numeracy credits at Level 1 or above</td></tr>
+              <tr><th scope="row">International Baccalaureate</th><td>IB Diploma with 24 points or more (out of 45)</td></tr>
+              <tr><th scope="row">GCE A-Levels</th><td>Grades of approximately BBC across three A-Level subjects</td></tr>
+              <tr><th scope="row">Cambridge (CIE)</th><td>Equivalent to the A-Level requirement above</td></tr>
+              <tr><th scope="row">French Baccalauréat</th><td>Generally 12/20 overall or better (indicative)</td></tr>
+              <tr><th scope="row">English language</th><td>IELTS 6.0 overall (no band below 5.5) or equivalent — required if English is not your first language</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="checker" aria-labelledby="checker-h">
+      <div class="container">
+        <h2 id="checker-h" style="margin-top:0">Admissions checker</h2>
+        <p class="lede">Enter your (real or hypothetical) results to see whether they meet the standard entry requirements. This is a teaching demo — it stores nothing and sends nothing.</p>
+
+        <form class="form-card" id="checker-form" style="max-width:36rem" novalidate>
+          <div class="field">
+            <label for="q-type">Your qualification</label>
+            <select id="q-type">
+              <option value="ncea">NCEA (New Zealand)</option>
+              <option value="ib">International Baccalaureate</option>
+              <option value="alevels">GCE A-Levels / Cambridge</option>
+              <option value="frenchbac">French Baccalauréat</option>
+            </select>
+          </div>
+
+          <div id="q-fields"><!-- filled by js/admissions.js --></div>
+
+          <div class="field" style="margin-top:1rem">
+            <label for="q-ielts">IELTS overall score (skip if not needed)</label>
+            <input type="number" id="q-ielts" min="0" max="9" step="0.5" inputmode="decimal" aria-describedby="q-ielts-hint">
+            <span class="hint" id="q-ielts-hint">Requirement: 6.0 overall, no band below 5.5</span>
+          </div>
+          <div class="field">
+            <label for="q-band">Lowest IELTS band</label>
+            <input type="number" id="q-band" min="0" max="9" step="0.5" inputmode="decimal">
+          </div>
+
+          <button class="btn btn-solid" type="submit" style="margin-top:0.5rem">Check my results</button>
+        </form>
+
+        <div id="checker-result" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="section section--tint" aria-labelledby="notes-h">
+      <div class="container">
+        <h2 id="notes-h" style="margin-top:0">Good to know</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Limited-entry programmes</h3>
+            <p>Architecture (portfolio + interview), Music (audition), and some teacher-education programmes select beyond the academic requirement.</p>
+          </article>
+          <article class="card">
+            <h3>Rank scores still matter</h3>
+            <p>Guaranteed entry removed the old rank-score thresholds (150 / 180), but a strong NCEA rank score still helps for scholarships and competitive programmes. Try it on the <a href="calculators.html">calculators page</a>.</p>
+          </article>
+          <article class="card">
+            <h3>Apply early</h3>
+            <p>Trimester 1 starts in late February; applications for scholarships close well before then. International students also need a student visa via <a href="https://www.immigration.govt.nz" target="_blank" rel="noopener">Immigration New Zealand</a>.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h3>About this site</h3>
+          <p style="font-size:0.92rem">An educational class project about Te Herenga Waka—Victoria University of Wellington. Not an official university website — for authoritative information always visit <a href="https://www.wgtn.ac.nz" target="_blank" rel="noopener">wgtn.ac.nz</a>.</p>
+        </div>
+        <div>
+          <h3>Official links</h3>
+          <ul>
+            <li><a href="https://www.wgtn.ac.nz/study/apply-enrol/admissions" target="_blank" rel="noopener">Admissions</a></li>
+            <li><a href="https://www.wgtn.ac.nz/study/apply-enrol/admissions/nz-university-entrance" target="_blank" rel="noopener">NZ University Entrance</a></li>
+            <li><a href="https://www.nzqa.govt.nz" target="_blank" rel="noopener">NZQA</a></li>
+            <li><a href="https://www.immigration.govt.nz" target="_blank" rel="noopener">Immigration NZ</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Pages</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="programmes.html">Programmes</a></li>
+            <li><a href="calculators.html">Calculators</a></li>
+            <li><a href="student-life.html">Student Life</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer-note">Photos: Wikimedia Commons (CC BY-SA 4.0, CC BY 2.0, public domain) — see <a href="img/CREDITS.md">credits</a>. Indicative data collected September 2026 for a class presentation.</p>
+    </div>
+  </footer>
+
+  <script src="js/admissions.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
