@@ -16,7 +16,6 @@ Authoritative information lives at [wgtn.ac.nz](https://www.wgtn.ac.nz).
 | `admissions.html` | Requirements table + interactive admissions checker (NCEA, IB, A-Levels, French Bac, IELTS) |
 | `calculators.html` | NCEA rank score calculator, international fee estimator, NZ 9-point GPA |
 | `student-life.html` | The three campuses, the trimester year, Wellington |
-| `contact.html` | Validated demo form (front-end only — no backend) + official contact links |
 
 No build step, no dependencies, no network needed at runtime except external links.
 
@@ -40,10 +39,10 @@ python3 -m http.server 8000
 
 ```
 ├── index.html, programmes.html, admissions.html,
-│   calculators.html, student-life.html, contact.html
+│   calculators.html, student-life.html
 ├── css/style.css
 ├── js/            data.js (programme dataset), main.js (nav/reveal),
-│                  programmes.js, admissions.js, calculators.js, contact.js
+│                  programmes.js, admissions.js, calculators.js
 └── img/           logo + Wikimedia Commons photos (see img/CREDITS.md)
 ```
 
