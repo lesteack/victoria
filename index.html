@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Te Herenga Waka—Victoria University of Wellington | Class Project</title>
-  <meta name="description" content="A class presentation site about Te Herenga Waka—Victoria University of Wellington: programmes, admissions, fees, and student life in New Zealand's capital.">
+  <meta name="description" content="A class presentation site about Te Herenga Waka—Victoria University of Wellington: campuses, programmes, admissions for French students, fees, and living costs.">
   <link rel="icon" type="image/jpeg" href="img/logo.jpg">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -29,6 +29,10 @@
           <li><a href="student-life.html">Student Life</a></li>
         </ul>
       </nav>
+      <div class="currency-switch" role="group" aria-label="Currency">
+        <button type="button" data-cur="eur" aria-pressed="true">€</button>
+        <button type="button" data-cur="nzd" aria-pressed="false">NZ$</button>
+      </div>
     </div>
   </header>
 
@@ -51,8 +55,7 @@
 
     <section class="section" aria-labelledby="stats-h">
       <div class="container">
-        <h2 id="stats-h" class="reveal" style="margin-top:0">The university at a glance</h2>
-        <div class="stats reveal" style="margin-top:1.5rem">
+        <div class="stats reveal">
           <div class="stat"><b>1897</b><span>Founded — named after Queen Victoria</span></div>
           <div class="stat"><b>22,000+</b><span>Students, incl. 4,000 international</span></div>
           <div class="stat"><b>#240</b><span>QS World University Rankings 2026</span></div>
@@ -63,76 +66,107 @@
       </div>
     </section>
 
-    <section class="section section--tint" aria-labelledby="why-h">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="why-h" class="reveal" style="margin-top:0">Why Victoria?</h2>
+    <section class="section section--tint" id="campus" aria-labelledby="campus-h">
+      <div class="container topic">
+        <div class="topic-main">
+          <span class="topic-num" aria-hidden="true">1</span>
+          <h2 id="campus-h">Campus &amp; student life</h2>
+          <p class="lede">Three campuses woven through the capital: Kelburn (main, up the famous cable car), Pipitea (Law and Business beside Parliament), and Te Aro (Design in the creative district).</p>
+          <ul class="topic-facts">
+            <li><span>Halls of residence for first years</span><span class="val">10+ halls</span></li>
+            <li><span>Student clubs and societies</span><span class="val">100+</span></li>
+            <li><span>Wellington: museums, waterfront, film industry</span><span class="val">On your doorstep</span></li>
+          </ul>
+          <a class="btn btn-solid topic-link" href="student-life.html">Campus &amp; student life details</a>
         </div>
-        <div class="grid">
-          <article class="card reveal">
-            <h3>Top 1% worldwide</h3>
-            <p>Top 1% in 14 subject areas, and New Zealand's most research-intensive university.</p>
-          </article>
-          <article class="card reveal">
-            <h3>The capital-city advantage</h3>
-            <p>Law and policy students learn steps from Parliament, the courts, and the public service.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Trimester system</h3>
-            <p>Three teaching periods a year — nearly 900 courses, two main intake dates.</p>
-          </article>
-          <article class="card reveal">
-            <h3>Creative capital</h3>
-            <p>Home to Weta Workshop and the film industry — the Master of Design Technology is built with them.</p>
-          </article>
+        <div class="topic-aside">
+          <img src="img/kelburn-campus-01.jpg" alt="The Kelburn campus buildings and surrounding greenery." loading="lazy" width="1280" height="960">
+          <div class="map-wrap">
+            <iframe src="https://www.google.com/maps?q=Te+Herenga+Waka+Victoria+University+of+Wellington,+Kelburn+Parade,+Wellington&output=embed" title="Map: Victoria University of Wellington, Kelburn campus" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="faculties-h">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="faculties-h" class="reveal" style="margin-top:0">Eight faculties, nearly 200 programmes</h2>
-          <p class="lede reveal">Pick a faculty to see its programmes, durations, and indicative fees.</p>
+    <section class="section" id="majors" aria-labelledby="majors-h">
+      <div class="container topic">
+        <div class="topic-main">
+          <span class="topic-num" aria-hidden="true">2</span>
+          <h2 id="majors-h">Majors / courses</h2>
+          <p class="lede">Nearly 200 programmes across eight faculties, built from about 900 individual courses on a three-trimester year.</p>
+          <ul class="topic-facts">
+            <li><span>Faculties — from Law to Engineering, Design to Health</span><span class="val">8</span></li>
+            <li><span>Programmes, undergraduate and postgraduate</span><span class="val">~200</span></li>
+            <li><span>Example — Bachelor of Arts, per year</span><span class="val" data-nzd="29400"></span></li>
+            <li><span>Example — Bachelor of Laws, per year</span><span class="val" data-nzd="35350"></span></li>
+          </ul>
+          <a class="btn btn-solid topic-link" href="programmes.html">Browse &amp; filter all programmes</a>
         </div>
-        <div class="grid">
-          <a class="card reveal" href="programmes.html?faculty=humss" style="text-decoration:none;color:inherit">
-            <h3>Humanities &amp; Social Sciences</h3><p>Arts, global studies, music, languages — the largest faculty.</p>
-          </a>
-          <a class="card reveal" href="programmes.html?faculty=science" style="text-decoration:none;color:inherit">
-            <h3>Science</h3><p>Biology, chemistry, physics, data science, and psychology.</p>
-          </a>
-          <a class="card reveal" href="programmes.html?faculty=business" style="text-decoration:none;color:inherit">
-            <h3>Business &amp; Government</h3><p>Commerce, accounting, and public policy in the CBD.</p>
-          </a>
-          <a class="card reveal" href="programmes.html?faculty=law" style="text-decoration:none;color:inherit">
-            <h3>Law</h3><p>The capital's law school, beside Parliament and the courts.</p>
-          </a>
-          <a class="card reveal" href="programmes.html?faculty=ecs" style="text-decoration:none;color:inherit">
-            <h3>Engineering &amp; Computer Science</h3><p>Software, networks, AI, and accredited engineering degrees.</p>
-          </a>
-          <a class="card reveal" href="programmes.html?faculty=design" style="text-decoration:none;color:inherit">
-            <h3>Architecture &amp; Design</h3><p>Architecture, building science, and design innovation at Te Aro.</p>
-          </a>
-          <a class="card reveal" href="programmes.html?faculty=education" style="text-decoration:none;color:inherit">
-            <h3>Education</h3><p>Teacher education with real classroom placements.</p>
-          </a>
-          <a class="card reveal" href="programmes.html?faculty=health" style="text-decoration:none;color:inherit">
-            <h3>Health</h3><p>Health promotion, policy, and public health.</p>
-          </a>
+        <div class="topic-aside">
+          <img src="img/kelburn-campus-13.jpg" alt="Students walking through the Kelburn campus." loading="lazy" width="1280" height="960">
         </div>
-        <p style="margin-top:1.4rem"><a class="btn btn-solid" href="programmes.html">Browse all programmes</a></p>
       </div>
     </section>
 
-    <section class="section section--tint" aria-labelledby="wlg-h">
-      <div class="container">
-        <div class="section-head">
-          <h2 id="wlg-h" class="reveal" style="margin-top:0">Study in Wellington</h2>
-          <p class="lede reveal">Compact, creative, and consistently among the world's most liveable cities.</p>
+    <section class="section section--tint" id="admissions" aria-labelledby="adm-h">
+      <div class="container topic">
+        <div class="topic-main">
+          <span class="topic-num" aria-hidden="true">3</span>
+          <h2 id="adm-h">Undergraduate admissions for a French student</h2>
+          <p class="lede">With a French Baccalauréat you apply directly as an international student — no need for a New Zealand qualification.</p>
+          <ul class="topic-facts">
+            <li><span>Baccalauréat general average (indicative)</span><span class="val">12/20 or better</span></li>
+            <li><span>English test — IELTS overall (no band below 5.5)</span><span class="val">6.0</span></li>
+            <li><span>Equivalents accepted</span><span class="val">TOEFL, Cambridge, PTE</span></li>
+            <li><span>Student visa via Immigration NZ</span><span class="val">Required</span></li>
+          </ul>
+          <a class="btn btn-solid topic-link" href="admissions.html">Requirements table &amp; admissions checker</a>
         </div>
-        <img class="reveal" src="img/wellington-harbour.jpg" alt="Wellington's harbour and waterfront with the city behind." style="border-radius:var(--radius);margin-bottom:1.5rem" loading="lazy" width="1280" height="853">
-        <p style="margin:0"><a class="btn btn-ghost" href="student-life.html">Discover student life</a></p>
+        <div class="topic-aside">
+          <img src="img/old-government-buildings.jpg" alt="The Old Government Buildings, home of the Law school, beside Parliament." loading="lazy" width="1280" height="960">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="fees" aria-labelledby="fees-h">
+      <div class="container topic">
+        <div class="topic-main">
+          <span class="topic-num" aria-hidden="true">4</span>
+          <h2 id="fees-h">Tuition fees &amp; scholarships</h2>
+          <p class="lede">International tuition varies by programme — these are the indicative ranges a French student should plan for.</p>
+          <ul class="topic-facts">
+            <li><span>Undergraduate tuition, per year</span><span class="val"><span data-nzd="25000"></span>–<span data-nzd="40000"></span></span></li>
+            <li><span>Postgraduate tuition, per year</span><span class="val"><span data-nzd="30000"></span>–<span data-nzd="45000"></span></span></li>
+            <li><span>NZ International Student Grant</span><span class="val"><span data-nzd="5000"></span>–<span data-nzd="10000"></span></span></li>
+            <li><span>First-year international scholarships</span><span class="val">Several, per faculty</span></li>
+          </ul>
+          <p class="fee-note">All fees displayed in euros at an indicative rate of 1 NZ$ = €0.50 — use the € / NZ$ switch in the header.</p>
+          <a class="btn btn-solid topic-link" href="calculators.html">Estimate my costs</a>
+        </div>
+        <div class="topic-aside">
+          <img src="img/wellington-harbour.jpg" alt="Wellington's harbour and waterfront with the city behind." loading="lazy" width="1280" height="853">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="living" aria-labelledby="living-h">
+      <div class="container topic">
+        <div class="topic-main">
+          <span class="topic-num" aria-hidden="true">5</span>
+          <h2 id="living-h">Accommodation &amp; living expenses</h2>
+          <p class="lede">Most first-years live in a catered hall of residence; after that, flatting in Wellington is the norm.</p>
+          <ul class="topic-facts">
+            <li><span>Hall of residence (catered), per year</span><span class="val"><span data-nzd="16000"></span>–<span data-nzd="21000"></span></span></li>
+            <li><span>Flatting — a room per week</span><span class="val"><span data-nzd="180"></span>–<span data-nzd="280"></span></span></li>
+            <li><span>Total living costs, per year (est.)</span><span class="val"><span data-nzd="15000"></span>–<span data-nzd="20000"></span></span></li>
+            <li><span>Flights Paris ⇄ Wellington, return (est.)</span><span class="val"><span data-nzd="1400"></span>–<span data-nzd="2200"></span></span></li>
+          </ul>
+          <p class="fee-note">Estimates for a class presentation — confirm on the <a href="https://www.wgtn.ac.nz/international/scholarships-fees/cost-calculator" target="_blank" rel="noopener">official cost calculator</a>.</p>
+          <a class="btn btn-solid topic-link" href="student-life.html#accommodation">Accommodation details</a>
+        </div>
+        <div class="topic-aside">
+          <img src="img/kelburn-campus-06.jpg" alt="The Kelburn campus and Wellington's hillside cityscape." loading="lazy" width="1280" height="960">
+        </div>
       </div>
     </section>
   </main>
@@ -159,13 +193,15 @@
             <li><a href="programmes.html">Programmes</a></li>
             <li><a href="admissions.html">Admissions</a></li>
             <li><a href="calculators.html">Calculators</a></li>
+            <li><a href="student-life.html">Student Life</a></li>
           </ul>
         </div>
       </div>
-      <p class="footer-note">Photos: Wikimedia Commons (CC BY-SA 4.0, CC BY 2.0, public domain) — see <a href="img/CREDITS.md">credits</a>. Indicative data collected September 2026 for a class presentation.</p>
+      <p class="footer-note">Photos: Wikimedia Commons (CC BY-SA 4.0, CC BY 2.0, public domain) — see <a href="img/CREDITS.md">credits</a>. Indicative data collected September 2026; euros shown at 1 NZ$ = €0.50.</p>
     </div>
   </footer>
 
+  <script src="js/currency.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

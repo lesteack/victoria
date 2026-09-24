@@ -2,11 +2,6 @@
 // Fees are indicative international tuition estimates (NZD per year), rounded.
 // Sources: wgtn.ac.nz and public fee guides, 2026 intake. See img/CREDITS.md and README.
 
-// Format NZD for display
-function nzd(n) {
-  return "$" + Number(n).toLocaleString("en-NZ");
-}
-
 const FACULTIES = [
   { id: "humss", name: "Humanities and Social Sciences", campus: "Kelburn" },
   { id: "science", name: "Science", campus: "Kelburn" },

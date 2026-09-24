@@ -55,7 +55,7 @@
       "<h3>" + p.name + "</h3>" +
       '<p>' + p.blurb + "</p>" +
       '<div class="tags">' + tags + "</div>" +
-      '<p style="font-size:0.9rem;color:var(--teal-700);font-weight:600">' + nzd(p.fee) + " / yr · international (indicative)</p>" +
+      '<p style="font-size:0.9rem;color:var(--teal-700);font-weight:600">' + Currency.money(p.fee) + " / yr · international (indicative)</p>" +
       '<p style="font-size:0.86rem;margin:0"><a href="https://www.wgtn.ac.nz/explore/' + p.slug + '" target="_blank" rel="noopener">Official programme page ↗</a></p>' +
       "</article>"
     );
@@ -91,6 +91,9 @@
     });
   });
   document.getElementById("filters").addEventListener("submit", function (e) { e.preventDefault(); });
+
+  // Re-render when the currency toggle changes displayed fees
+  document.addEventListener("currencychange", applyFilters);
 
   applyFilters();
 })();

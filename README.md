@@ -11,13 +11,18 @@ Authoritative information lives at [wgtn.ac.nz](https://www.wgtn.ac.nz).
 
 | Page | What it does |
 |---|---|
-| `index.html` | Homepage — hero, key figures, faculty overview |
+| `index.html` | Homepage — the five essentials (campus & student life, majors, admissions for a French student, fees & scholarships, accommodation & living costs), with a Google Maps embed |
 | `programmes.html` | Programme explorer: search + faculty / campus / level filters |
-| `admissions.html` | Requirements table + interactive admissions checker (NCEA, IB, A-Levels, French Bac, IELTS) |
+| `admissions.html` | Requirements table + interactive admissions checker (NCEA, IB, A-Levels, French Bac, IELTS) + a "Coming from France?" section |
 | `calculators.html` | NCEA rank score calculator, international fee estimator, NZ 9-point GPA |
-| `student-life.html` | The three campuses, the trimester year, Wellington |
+| `student-life.html` | The three campuses, the trimester year, Wellington, accommodation costs |
 
-No build step, no dependencies, no network needed at runtime except external links.
+**Currency**: all amounts are shown in euros by default (indicative rate 1 NZ$ = €0.50);
+the € / NZ$ switch in the header converts every price on every page, and the choice is
+remembered (localStorage).
+
+No build step, no dependencies, no network needed at runtime except external links
+and the Google Maps embed.
 
 ## Run locally
 

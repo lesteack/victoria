@@ -28,6 +28,10 @@
           <li><a href="student-life.html" aria-current="page">Student Life</a></li>
         </ul>
       </nav>
+      <div class="currency-switch" role="group" aria-label="Currency">
+        <button type="button" data-cur="eur" aria-pressed="true">€</button>
+        <button type="button" data-cur="nzd" aria-pressed="false">NZ501/button>
+      </div>
     </div>
   </header>
 
@@ -89,6 +93,9 @@
       <div class="container">
         <h2 id="wlg-h" style="margin-top:0">Wellington, the coolest little capital</h2>
         <img src="img/wellington-harbour.jpg" alt="Wellington's harbour on a clear day, the city and hills behind." style="border-radius:var(--radius);margin:1.2rem 0" loading="lazy" width="1280" height="853">
+        <div class="map-wrap">
+          <iframe src="https://www.google.com/maps?q=Te+Herenga+Waka+Victoria+University+of+Wellington,+Kelburn+Parade,+Wellington&output=embed" title="Map: Victoria University of Wellington, Kelburn campus" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
         <div class="grid">
           <article class="card">
             <h3>Culture on your doorstep</h3>
@@ -108,6 +115,24 @@
           <a href="https://www.wellingtonnz.com" target="_blank" rel="noopener">Wellington tourism ↗</a> ·
           <a href="https://www.tepapa.govt.nz" target="_blank" rel="noopener">Te Papa museum ↗</a>
         </p>
+      </div>
+    </section>
+
+    <section class="section section--tint" id="accommodation" aria-labelledby="acc-h">
+      <div class="container">
+        <h2 id="acc-h" style="margin-top:0">Accommodation &amp; living expenses</h2>
+        <p class="lede">Most first-years live in a catered hall of residence; after that, flatting in Wellington is the norm. Indicative figures for an international student.</p>
+        <div class="table-wrap" style="margin-top:1.5rem">
+          <table>
+            <thead><tr><th scope="col">Option</th><th scope="col">Indicative cost</th><th scope="col">Good for</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Hall of residence (catered)</th><td><span data-nzd="16000"></span>–<span data-nzd="21000"></span> per year</td><td>First years — meals, community, support included</td></tr>
+              <tr><th scope="row">Self-catered hall / flat</th><td><span data-nzd="180"></span>–<span data-nzd="280"></span> per week (room)</td><td>Independence from the second year on</td></tr>
+              <tr><th scope="row">Total living costs</th><td><span data-nzd="15000"></span>–<span data-nzd="20000"></span> per year</td><td>Food, transport, phone, entertainment</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="fee-note">Amounts follow the € / NZ$ switch in the header (euros at an indicative 1 NZ$ = €0.50). Official guidance: <a href="https://www.wgtn.ac.nz/accommodation" target="_blank" rel="noopener">wgtn.ac.nz/accommodation</a>.</p>
       </div>
     </section>
   </main>
@@ -140,6 +165,7 @@
     </div>
   </footer>
 
+  <script src="js/currency.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

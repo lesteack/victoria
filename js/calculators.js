@@ -60,11 +60,11 @@
     feeOut.innerHTML =
       '<div class="calc-out"><p style="margin:0">' + fname + " · " + levelName + " · " + years + " year" + (years > 1 ? "s" : "") + "</p>" +
       "<dl>" +
-      "<dt>Tuition / year</dt><dd>" + nzd(range[0]) + " – " + nzd(range[1]) + " (indicative)</dd>" +
-      "<dt>Living / year</dt><dd>" + nzd(living) + " (your figure)</dd>" +
-      "<dt>Total estimate</dt><dd><b>" + nzd(lowTotal) + " – " + nzd(highTotal) + "</b></dd>" +
+      "<dt>Tuition / year</dt><dd>" + Currency.money(range[0]) + " – " + Currency.money(range[1]) + " (indicative)</dd>" +
+      "<dt>Living / year</dt><dd>" + Currency.money(living) + " (your figure)</dd>" +
+      "<dt>Total estimate</dt><dd><b>" + Currency.money(lowTotal) + " – " + Currency.money(highTotal) + "</b></dd>" +
       "</dl>" +
-      "<p style='font-size:0.85rem;color:var(--muted);margin:0.7rem 0 0'>Excludes flights, insurance, and the Student Services Fee. Scholarships (e.g. the NZ International Student Grant of $5,000–10,000) can reduce this.</p></div>";
+      "<p style='font-size:0.85rem;color:var(--muted);margin:0.7rem 0 0'>Excludes flights, insurance, and the Student Services Fee. The NZ International Student Grant of " + Currency.money(5000) + "–" + Currency.money(10000) + " can reduce this.</p></div>";
   });
 
   /* 3. NZ GPA, 9-point scale */
@@ -110,5 +110,15 @@
       '<div class="calc-out"><p style="margin:0">GPA (NZ 9-point scale)</p>' +
       "<p style='margin:0.2rem 0'><b>" + gpa + "</b> / 9 <span style='color:var(--muted)'>(" + papers + " papers)</span></p>" +
       "<p style='margin:0.5rem 0 0;font-size:0.95rem'>" + band + "</p></div>";
+  });
+
+  // Re-run the money calculators when the € / NZ$ switch changes displayed amounts
+  document.addEventListener("currencychange", function () {
+    if (rankOut.textContent.trim()) {
+      rankForm.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    }
+    if (feeOut.textContent.trim()) {
+      feeForm.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+    }
   });
 })();

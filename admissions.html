@@ -28,6 +28,10 @@
           <li><a href="student-life.html">Student Life</a></li>
         </ul>
       </nav>
+      <div class="currency-switch" role="group" aria-label="Currency">
+        <button type="button" data-cur="eur" aria-pressed="true">€</button>
+        <button type="button" data-cur="nzd" aria-pressed="false">NZ501/button>
+      </div>
     </div>
   </header>
 
@@ -97,6 +101,31 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="fr-h">
+      <div class="container">
+        <h2 id="fr-h" style="margin-top:0">Coming from France?</h2>
+        <p class="lede">What a French student needs for an undergraduate degree at Victoria.</p>
+        <div class="grid" style="margin-top:1.5rem">
+          <article class="card">
+            <h3>Qualification</h3>
+            <p>A general <strong>Baccalauréat with a 12/20 average or better</strong> (indicative) satisfies the academic requirement. No need for a New Zealand qualification.</p>
+          </article>
+          <article class="card">
+            <h3>English proof</h3>
+            <p>IELTS 6.0 overall (no band below 5.5), or TOEFL, Cambridge, or PTE equivalents. Most French lycée English courses don't replace a test.</p>
+          </article>
+          <article class="card">
+            <h3>Steps</h3>
+            <p>Apply online with your Bac results and transcripts → receive an offer → pay fees → apply for a student visa at <a href="https://www.immigration.govt.nz" target="_blank" rel="noopener">Immigration New Zealand</a>.</p>
+          </article>
+          <article class="card">
+            <h3>Try it</h3>
+            <p>Pick "French Baccalauréat" in the checker above and enter your average — say, <strong>14/20</strong> — to see the result live during the presentation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--tint" aria-labelledby="notes-h">
       <div class="container">
         <h2 id="notes-h" style="margin-top:0">Good to know</h2>
@@ -148,6 +177,7 @@
     </div>
   </footer>
 
+  <script src="js/currency.js"></script>
   <script src="js/admissions.js"></script>
   <script src="js/main.js"></script>
 </body>
