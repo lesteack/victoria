@@ -29,11 +29,11 @@ python3 -m http.server 8000
 
 (Opening `index.html` directly from the filesystem also works.)
 
-## Deploy on GitHub Pages
+## Deploy
 
-1. Create a repository on GitHub and push this folder.
-2. Repository **Settings → Pages → Source: Deploy from a branch**, branch `main`, folder `/ (root)`.
-3. The site is served at `https://<user>.github.io/<repo>/`.
+The site is deployed from this repository on Vercel (auto-deploy on push to `main`).
+Any static host works — GitHub Pages, Netlify, Cloudflare Pages: point it at the repo
+root; there is no build step.
 
 ## Structure
 
