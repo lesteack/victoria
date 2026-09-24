@@ -27,6 +27,23 @@ document.documentElement.classList.remove("no-js");
     });
   }
 
+  // Mobile: keep the header to one row — the currency switch lives inside the menu panel
+  var switchEl = document.querySelector(".currency-switch");
+  var navPanel = document.getElementById("site-nav");
+  if (switchEl && navPanel) {
+    var mq = window.matchMedia("(max-width: 780px)");
+    var headerInner = switchEl.parentElement;
+    var placeSwitch = function () {
+      if (mq.matches) {
+        navPanel.insertBefore(switchEl, navPanel.firstChild);
+      } else if (switchEl.parentElement !== headerInner) {
+        headerInner.insertBefore(switchEl, navPanel.nextSibling);
+      }
+    };
+    placeSwitch();
+    if (mq.addEventListener) mq.addEventListener("change", placeSwitch);
+  }
+
   // Reveal on scroll (gentle, reduced-motion handled in CSS)
   var items = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window && items.length) {
