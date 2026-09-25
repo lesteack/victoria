@@ -445,3 +445,72 @@ tbody tr:last-child td { border-bottom: 0; }
   .filter-bar { flex-direction: column; align-items: stretch; }
   .field { min-width: 0; }
 }
+
+/* Welcome popup (shown once per visit) */
+.welcome-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(12, 59, 56, 0.5);
+  opacity: 0;
+  transition: opacity 250ms var(--ease-out);
+}
+.welcome-overlay[hidden] { display: none; }
+.welcome-overlay.is-open { opacity: 1; }
+.welcome-card {
+  background: #fff;
+  color: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 60px rgba(12, 59, 56, 0.35);
+  max-width: 30rem;
+  width: 100%;
+  padding: 2rem 1.75rem 1.75rem;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 250ms var(--ease-out), transform 250ms var(--ease-out);
+}
+.welcome-overlay.is-open .welcome-card { opacity: 1; transform: none; }
+.welcome-kicker {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-600);
+  margin-bottom: 0.5rem;
+}
+.welcome-card h2 { margin: 0 0 0.75rem; }
+.welcome-card p { color: var(--muted); margin: 0 0 1.5rem; }
+.welcome-names { color: var(--ink); font-weight: 600; }
+.welcome-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.7rem 1.6rem;
+  border: 0;
+  border-radius: var(--radius-s);
+  background: var(--teal-900);
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.welcome-btn:hover { background: var(--teal-700); }
+
+.footer-credits {
+  margin-top: 2.2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+.footer-credits strong { color: #fff; font-weight: 600; }
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-card { transform: none; transition: opacity 200ms var(--ease-out); }
+  .welcome-overlay { transition: opacity 200ms var(--ease-out); }
+}

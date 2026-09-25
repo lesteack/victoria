@@ -66,3 +66,42 @@ document.documentElement.classList.remove("no-js");
     items.forEach(function (el) { el.classList.add("is-in"); });
   }
 })();
+
+// Welcome popup — shown once per visit (any page can be the entry point)
+(function () {
+  "use strict";
+  var overlay = document.querySelector(".welcome-overlay");
+  if (!overlay) return;
+
+  var seen = false;
+  try { seen = sessionStorage.getItem("vuw-welcome-seen") === "1"; } catch (e) {}
+  if (seen) return;
+
+  var closeBtn = overlay.querySelector(".welcome-btn");
+  var lastFocus = document.activeElement;
+
+  var close = function () {
+    overlay.classList.remove("is-open");
+    try { sessionStorage.setItem("vuw-welcome-seen", "1"); } catch (e) {}
+    setTimeout(function () { overlay.hidden = true; }, 260);
+    document.removeEventListener("keydown", onKey);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  };
+
+  var onKey = function (e) {
+    if (e.key === "Escape") close();
+  };
+
+  overlay.hidden = false;
+  requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+      overlay.classList.add("is-open");
+    });
+  });
+  if (closeBtn) closeBtn.addEventListener("click", close);
+  overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) close();
+  });
+  document.addEventListener("keydown", onKey);
+  if (closeBtn) closeBtn.focus();
+})();
