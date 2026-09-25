@@ -166,7 +166,7 @@ a:hover { color: var(--teal-900); }
   z-index: 1;
   color: #fff;
 }
-.hero-content .container { padding-bottom: 2.2rem; }
+.hero-content .container { padding-bottom: 2.2rem; transform: translateY(6px); }
 .hero h1 { color: #fff; margin: 0 0 0.6rem; text-wrap: balance; }
 .hero p { color: rgba(255, 255, 255, 0.92); font-size: 1.12rem; max-width: 38rem; margin: 0 0 1.4rem; }
 
