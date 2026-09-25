@@ -14,6 +14,9 @@ Site statique de **présentation de classe** sur **Te Herenga Waka—Victoria Un
 4. Homepage : 1. Campus & student life, 2. Majors/courses, 3. Undergraduate admissions for a French student, 4. Tuition fees & scholarships, 5. Accommodation & living expenses.
 6. **Carte Google Maps** (iframe `output=embed`, sans clé API) sur la homepage et student-life.
 7. Mobile soigné : header une rangée, pas de texte superposé, tap targets ≥44px.
+8. **Pop-up d'accueil « Kia ora — Welcome »** au premier chargement d'une visite : annonce que le site a été créé par **Noé, Manon, Inès, Cameron & Valentin**. Une seule fois par visite (`sessionStorage["vuw-welcome-seen"]`), fermable (bouton, clic hors carte, Échap). Mêmes prénoms en crédits dans le footer des 5 pages (`.footer-credits`).
+9. **Bannière hero « mieux intégrée »** (demande après capture iOS) : le haut de la photo (ciel délavé quasi blanc) donnait l'impression d'une bande vide détachée du header. Fix : image agrandie ×1,25 et remontée de 25 % (`--hero-h`, clippée par `overflow:hidden` → le contenu de la photo démarre sous le header), dégradé teal `.hero::before` en haut du hero, ombre douce sous le header.
+10. Titre du hero descendu : `.hero-content .container { transform: translateY(14px) }` (l'utilisateur a demandé « quelques pixels » puis « encore un peu plus » — ajustable en une ligne).
 
 ## Déploiement — IMPORTANT
 
@@ -21,12 +24,12 @@ Site statique de **présentation de classe** sur **Te Herenga Waka—Victoria Un
 - **Hébergé sur Vercel** (bot `vercel[bot]`), PAS GitHub Pages. Chaque push sur `main` déclenche un déploiement auto (~2 min).
 - Vérifier le déploiement sans auth :
   `curl -s https://api.github.com/repos/lesteack/victoria/deployments` puis `.../deployments/<id>/statuses` → attendre `"success"`.
-- **Cache iOS Safari** : cause de « bugs » fantômes (JS/CSS désynchronisés). Tous les assets locaux portent `?v=4` — **incrémenter la version à chaque modif de CSS/JS** dans les 5 pages HTML.
+- **Cache iOS Safari** : cause de « bugs » fantômes (JS/CSS désynchronisés). Tous les assets locaux portent `?v=8` — **incrémenter la version à chaque modif de CSS/JS** dans les 5 pages HTML.
 
 ## Architecture
 
 ```
-index.html            homepage : hero + stats + 5 sections (.topic), maps embed
+index.html            homepage : pop-up welcome + hero + stats + 5 sections (.topic), maps embed
 programmes.html       23 programmes, filtres (recherche, faculty, campus, level chips)
 admissions.html       table des prerequisites + checker interactif + "Coming from France?"
 calculators.html      rank score NCEA, estimateur de frais, GPA NZ (échelle 9 points)
@@ -34,12 +37,19 @@ student-life.html     3 campus, année en trimestres, Wellington, #accommodation
 css/style.css         tout le style, mobile-first, media query ≤780px
 js/currency.js        module devise (charger en PREMIER sur chaque page)
 js/data.js            dataset programmes/facultés/frais (source de vérité en NZD)
-js/main.js            nav mobile, reveal au scroll, déplace le switch devise dans le menu mobile (matchMedia ≤780px)
+js/main.js            nav mobile, reveal au scroll, switch devise dans le menu mobile (matchMedia ≤780px), pop-up welcome (markup `.welcome-overlay` dans les 5 pages HTML, juste après le skip-link)
 js/programmes.js      filtres + re-render sur événement "currencychange"
 js/admissions.js      checker (NCEA, IB, A-Levels, Bac français, IELTS)
 js/calculators.js     3 calculateurs, re-render sur "currencychange"
 img/                  logo + photos Wikimedia Commons (CREDITS.md obligatoire, licences CC)
 ```
+
+### Hero (homepage) — géométrie importante
+
+- `.hero-media img` : hauteur `calc(var(--hero-h) * 1.25)`, `margin-top: calc(var(--hero-h) * -0.25)` — l'image dépasse en haut et `.hero { overflow: hidden }` la clippe → recadre le ciel pâle du haut de la photo. `--hero-h` : `clamp(300px, 55vh, 520px)` en desktop, `clamp(280px, 42vh, 420px)` ≤780px.
+- `.hero::before` = dégradé teal du haut (rgba(12,59,56,0.42) → 0 à 45 %), `.hero::after` = dégradé du bas (0.78 au bas, pour le texte blanc).
+- `.hero-content` est ancré en bas (`inset: auto 0 0 0`) : sur mobile le bloc titre+sous-titre+boutons fait ~325px dans un hero de ~358px, donc le h1 est près du HAUT de la photo, pas du bas.
+- Ne pas « corriger » le recadrage en enlevant le ×1,25/-0,25 sans vérifier le rendu : le haut de `vuw-kelburn-view.jpg` est un ciel quasi blanc qui sinon se confond avec le fond papier.
 
 ## Système devise
 
@@ -79,7 +89,10 @@ img/                  logo + photos Wikimedia Commons (CREDITS.md obligatoire, l
 - Après push, attendre le déploiement Vercel (« success ») avant de dire que c'est en ligne ; le CDN peut servir un 404 en cache ~15 min sur une URL jamais visitée — vérifier avec un query string.
 - `tools.file_system.bash` du sandbox n'atteint pas le localhost de la machine ; utiliser le `bash` principal ou `tools.process.start`.
 - Wikimédia : les thumbs `upload.wikimedia.org` sont bloqués par robot policy ; passer par `commons.wikimedia.org/wiki/Special:FilePath/<File>?width=1600` avec un User-Agent navigateur.
+- Analyser une capture d'écran utilisateur sans vision : `sips -s format bmp` puis parser les pixels en Python (cartes ASCII par luminance, moyennes de couleurs par bandes, diff de rendus puppeteer). Pièges : `sips -z` prend **hauteur puis largeur** ; ignorer les pixels verts saturés épars (artefact de conversion Display P3) ; reproduire le viewport exact (iPhone = 393 CSS px @3x) avant de comparer.
 
 ## Ce qui reste ouvert
 
 - Rien de bloquant. Idées suggérées non réalisées : page cachée « notes du présentateur » avec le minutage de l'oral ; affiner si l'utilisateur signale un nouveau problème de rendu Safari iOS (demander une capture et la section exacte).
+- Réglages fins éventuels : valeur du `translateY(14px)` du titre hero ; opacité 0.42 du dégradé haut du hero (contraste du h1 blanc ≈ 3.7:1 sur mobile, suffisant pour du texte large gras).
+- Déploiement de cette session (25 sept. 2026) : pop-up welcome + crédits footer (v=5), intégration bannière hero (v=6), titre descendu 6px (v=7) puis 14px (v=8) — tous « success » sur Vercel.
